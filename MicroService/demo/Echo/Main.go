@@ -3,10 +3,13 @@ package Echo
 import (
 	"github.com/spf13/cobra"
 	"fmt"
+	"github.com/smallnest/rpcx/server"
 )
 
-func runServer(){
-	fmt.Println("Run Server")
+func runServer(addr string){
+	s := server.NewServer()
+	s.RegisterName("Calc", new(Calc),"")
+	s.Serve("tcp",addr)
 }
 
 func Main(version string){
@@ -17,7 +20,8 @@ func Main(version string){
 		Short: "Echo",
 		Long: "Echo Server",
 		Run:func(cmd *cobra.Command, args []string){
-			runServer()
+			addr := "0.0.0.0:8765"
+			runServer(addr)
 		},
 	}
 
