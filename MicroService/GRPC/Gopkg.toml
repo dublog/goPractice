@@ -1,0 +1,16 @@
+[metadata]
+codename = "GRPC"
+ignored = [
+    "git.apache.org/thrift.git/lib/go/thrift",
+    "golang.org/x/sys/unix",
+    "google.golang.org/grpc"
+ ]
+
+[prune]
+  go-tests = true
+  unused-packages = true
+
+[[constraint]]
+  name = "google.golang.org/grpc"
+  branch = "master"
+  source = "github.com/grpc/grpc-go"
