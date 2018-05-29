@@ -12,3 +12,4 @@
 *.out
 /MicroService/demo/vendor
 /.idea
+*vendor*
